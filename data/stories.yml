@@ -1,0 +1,51 @@
+version: "3.1"
+
+stories:
+
+  - story: greet
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - story: how_much
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: how_much
+      - action: utter_price
+
+  - story: goodbye
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: menu
+    steps:
+      - intent: menu
+      - action: utter_menu
+
+  - story: discount
+    steps:
+      - intent: discount
+      - action: utter_discount
+
+  - story: clean
+    steps:
+      - intent: clean
+      - action: utter_clean
+
+  - story: pay
+    steps:
+      - intent: order
+      - action: utter_ok
+      - intent: affirm
+      - action: utter_pay
+      - intent: already_pay
+      - action: utter_already_get
+
+  - story: cancel
+    steps:
+      - intent: cancel
+      - action: utter_cancel

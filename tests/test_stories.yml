@@ -1,0 +1,57 @@
+#### This file contains tests to evaluate that your bot behaves as expected.
+#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+
+version: "3.1"
+
+stories:
+
+  - story: test_greet
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - story: test_how_much_after_greeting
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: how_much
+      - action: utter_price
+
+  - story: test_menu_directly
+    steps:
+      - intent: menu
+      - action: utter_menu
+
+  - story: test_order_flow
+    steps:
+      - intent: order
+      - action: utter_ok
+      - intent: affirm
+      - action: utter_pay
+
+  - story: test_interactive_complex_story_shortened
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: menu
+      - action: utter_menu
+      - intent: discount
+      - action: utter_discount
+      - intent: order
+      - action: utter_ok
+      - intent: affirm
+      - action: utter_pay
+
+  - story: test_goodbye_after_conversation
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: menu
+      - action: utter_menu
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: test_affirm_handoff
+    steps:
+      - intent: affirm
+      - action: utter_human_handoff

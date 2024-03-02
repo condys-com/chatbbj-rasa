@@ -1,0 +1,51 @@
+version: '3.1'
+intents:
+- affirm
+- already_pay
+- cancel
+- clean
+- discount
+- goodbye
+- greet
+- how_much
+- menu
+- nlu_fallback
+- order
+responses:
+  utter_greet:
+  - text: 欢迎光临！^_^ 钵钵鸡~ 一元一串的钵钵鸡~
+  utter_price:
+  - text: 素的一块，荤的两块
+  utter_goodbye:
+  - text: 欢迎下次光临！
+  utter_menu:
+  - text: 我们的钵钵鸡菜品新鲜，种类丰富，有土豆片、木耳、海带、脆皮肠、去骨鸭掌、香菇、蘑菇、藕片、虾、去骨鸡爪、鹌鹑蛋、豆皮、豆腐、毛肚、青笋、鱼丸、蟹棒等，欢迎品尝
+  utter_discount:
+  - text: 限时活动，买一串送一串
+  utter_clean:
+  - text: 本店菜品采用纳米超声波技术，经过28道工序严格清洗，干净卫生，口感绵软，味道丰富且层次分明，每一口都能尝到鲜美的蔬菜和醇厚的肉汁，让人回味无穷
+  utter_ok:
+  - text: 确定要这些吗？还要其他的吗？
+  utter_pay:
+  - text: 合计100元，请您及时付款，谢谢
+  utter_already_get:
+  - text: 嗯好的，已收到，欢迎下次光临
+  utter_cancel:
+  - text: 嗯好的，账单已取消
+  utter_human_handoff:
+  - text: 钵钵鸡~ 一元一串的钵钵鸡~
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+actions:
+- utter_greet
+- utter_human_handoff
+- utter_cancel
+- utter_ok
+- utter_already_get
+- utter_price
+- utter_menu
+- utter_goodbye
+- utter_discount
+- utter_pay
+- utter_clean

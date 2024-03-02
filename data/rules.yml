@@ -1,0 +1,8 @@
+version: "3.1"
+
+rules:
+
+- rule: trigger human handoff with action_unlikely_intent
+  steps:
+    - action: action_unlikely_intent
+    - action: utter_human_handoff
