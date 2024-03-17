@@ -1,51 +1,87 @@
 version: '3.1'
 intents:
-- affirm
-- already_pay
-- cancel
-- clean
-- discount
-- goodbye
-- greet
-- how_much
-- menu
-- nlu_fallback
-- order
+  - ask_goods
+  - goodbye
+  - greet
+  - ask_product_details
+  - ask_price
+  - ask_discounts
+  - ask_stock
+  - ask_reviews
+  - ask_after_sales
+  - ask_payment_method
+  - ask_delivery
+  - ask_return_policy
+  - ask_membership
+  - ask_product_comparison
+  - ask_location
+  - ask_store_hours
+  - ask_product_availability
+  - ask_order_status
 responses:
+  utter_goods:
+    - text: 我们这里提供各种类别的商品，包括服装、电子产品、家居用品等，请问您对哪一种感兴趣呢？
   utter_greet:
-  - text: 欢迎光临！^_^ 钵钵鸡~ 一元一串的钵钵鸡~
-  utter_price:
-  - text: 素的一块，荤的两块
+    - text: 帅哥你好，欢迎光临Bobo商城！
+    - text: 欢迎光临Bobo商城，有什么可以帮助您的吗？
+    - text: 您好，欢迎光临Bobo商城，如有需要请随时告诉我。
   utter_goodbye:
-  - text: 欢迎下次光临！
-  utter_menu:
-  - text: 我们的钵钵鸡菜品新鲜，种类丰富，有土豆片、木耳、海带、脆皮肠、去骨鸭掌、香菇、蘑菇、藕片、虾、去骨鸡爪、鹌鹑蛋、豆皮、豆腐、毛肚、青笋、鱼丸、蟹棒等，欢迎品尝
-  utter_discount:
-  - text: 限时活动，买一串送一串
-  utter_clean:
-  - text: 本店菜品采用纳米超声波技术，经过28道工序严格清洗，干净卫生，口感绵软，味道丰富且层次分明，每一口都能尝到鲜美的蔬菜和醇厚的肉汁，让人回味无穷
-  utter_ok:
-  - text: 确定要这些吗？还要其他的吗？
-  utter_pay:
-  - text: 合计100元，请您及时付款，谢谢
-  utter_already_get:
-  - text: 嗯好的，已收到，欢迎下次光临
-  utter_cancel:
-  - text: 嗯好的，账单已取消
-  utter_human_handoff:
-  - text: 钵钵鸡~ 一元一串的钵钵鸡~
+    - text: 再见啦！
+    - text: 感谢您的光临，期待您的下次访问！
+    - text: 如果还有其他问题，欢迎再次咨询。再见！
+  utter_product_details:
+    - text: 该商品具备高清显示屏、长效电池、轻巧设计等特点，您想了解哪方面的详细信息？
+    - text: 这款产品采用了最新的技术，包含了多种颜色选项和尺寸规格，是否需要进一步的信息呢？
+  utter_price:
+    - text: 这款商品的价格是1999元，目前我们正在进行促销活动，购买还会享受额外的折扣。
+    - text: 价格方面，小的不藏私，仅售999元，这可是物超所值哦！
+  utter_discounts:
+    - text: 目前我们有会员独享折扣，您可以注册成为我们的会员享受更多福利哦！
+    - text: 恭喜您，该产品正参与限时折扣活动，买一送一，赶快下单吧！
+  utter_stock:
+    - text: 这款商品现货供应中，您可以放心下单。
+    - text: 非常抱歉，该商品暂时缺货，我们会尽快补充库存，请保持关注。
+  utter_ask_reviews:
+    - text: "大部分顾客对这个商品都非常满意。您想查看一些具体的评价吗？"
+  utter_ask_after_sales:
+    - text: "我们提供30天内无理由退货服务，另外还有一年的质量保障。请放心购买！"
+  utter_ask_payment_method:
+    - text: "我们支持多种支付方式，包括但不限于支付宝、微信支付、银行卡以及货到付款。"
+  utter_ask_delivery:
+    - text: "一般情况下，订单确认后48小时内发货，具体送达时间取决于您的地理位置。"
+  utter_ask_return_policy:
+    - text: "我们支持30天无理由退货，商品需要保持原有状态，并请保留包装和发票。"
+  utter_ask_membership:
+    - text: "成为会员后，您可以享受积分累积、专属优惠、生日礼物等多项福利！"
+  utter_ask_product_comparison:
+    - text: "两款产品各有特点，具体比较需要根据您的需求。可以告诉我您最关心的几个方面吗？"
+  utter_ask_location:
+    - text: "我们在全国多个城市都设有实体店，具体位置可以在我们的网站上查看。"
+  utter_ask_store_hours:
+    - text: "我们的店铺周一至周日，早上9点至晚上10点营业。"
+  utter_ask_product_availability:
+    - text: "这款产品预计下月初上市，目前已开放预订。您可以先行预订。"
+  utter_ask_order_status:
+    - text: "您提供的订单号正在处理中，预计明天发货。您可以在“我的订单”中查看最新状态。"
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 actions:
-- utter_greet
-- utter_human_handoff
-- utter_cancel
-- utter_ok
-- utter_already_get
-- utter_price
-- utter_menu
-- utter_goodbye
-- utter_discount
-- utter_pay
-- utter_clean
+  - utter_goods
+  - utter_greet
+  - utter_goodbye
+  - utter_product_details
+  - utter_price
+  - utter_discounts
+  - utter_stock
+  - utter_ask_reviews
+  - utter_ask_after_sales
+  - utter_ask_payment_method
+  - utter_ask_delivery
+  - utter_ask_return_policy
+  - utter_ask_membership
+  - utter_ask_product_comparison
+  - utter_ask_location
+  - utter_ask_store_hours
+  - utter_ask_product_availability
+  - utter_ask_order_status

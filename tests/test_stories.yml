@@ -1,57 +1,141 @@
-#### This file contains tests to evaluate that your bot behaves as expected.
-#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
-
-version: "3.1"
-
+version: '3.1'
 stories:
-
-  - story: test_greet
+  - story: 测试问候和询问商品类别
     steps:
-      - intent: greet
-      - action: utter_greet
+    - user: |
+        你好
+      intent: greet
+    - action: utter_greet
+    - user: |
+        有哪些商品？
+      intent: ask_goods
+    - action: utter_goods
 
-  - story: test_how_much_after_greeting
+  - story: 测试询问商品详细信息和告别
     steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: how_much
-      - action: utter_price
+    - user: |
+        我想了解这个商品
+      intent: ask_product_details
+    - action: utter_product_details
+    - user: |
+        好的，谢谢
+      intent: goodbye
+    - action: utter_goodbye
 
-  - story: test_menu_directly
+  - story: 测试询问折扣活动并结束对话
     steps:
-      - intent: menu
-      - action: utter_menu
+    - user: |
+        目前有优惠吗？
+      intent: ask_discounts
+    - action: utter_discounts
+    - user: |
+        好的，没问题，再见
+      intent: goodbye
+    - action: utter_goodbye
 
-  - story: test_order_flow
+  - story: 测试询问价格后继续询问库存情况
     steps:
-      - intent: order
-      - action: utter_ok
-      - intent: affirm
-      - action: utter_pay
+    - user: |
+        这个多少钱？
+      intent: ask_price
+    - action: utter_price
+    - user: |
+        有库存吗？
+      intent: ask_stock
+    - action: utter_stock
 
-  - story: test_interactive_complex_story_shortened
+  - story: 测试用户连续询问商品信息和告别
     steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: menu
-      - action: utter_menu
-      - intent: discount
-      - action: utter_discount
-      - intent: order
-      - action: utter_ok
-      - intent: affirm
-      - action: utter_pay
+    - user: |
+        你们卖什么产品？
+      intent: ask_goods
+    - action: utter_goods
+    - user: |
+        这个产品怎样？
+      intent: ask_product_details
+    - action: utter_product_details
+    - user: |
+        好的，我知道了，再见
+      intent: goodbye
+    - action: utter_goodbye
 
-  - story: test_goodbye_after_conversation
+  - story: 测试问候后询问商品并查看评论
     steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: menu
-      - action: utter_menu
-      - intent: goodbye
-      - action: utter_goodbye
+    - user: |
+        你好
+      intent: greet
+    - action: utter_greet
+    - user: |
+        有什么推荐的商品吗？
+      intent: ask_goods
+    - action: utter_goods
+    - user: |
+        这个商品的用户评价怎么样？
+      intent: ask_reviews
+    - action: utter_ask_reviews
 
-  - story: test_affirm_handoff
+  - story: 测试询问售后服务和退货政策
     steps:
-      - intent: affirm
-      - action: utter_human_handoff
+    - user: |
+        如果我不满意可以退货吗？
+      intent: ask_after_sales
+    - action: utter_ask_after_sales
+    - user: |
+        你们的退货政策是怎样的？
+      intent: ask_return_policy
+    - action: utter_ask_return_policy
+
+  - story: 测试用户询问支付方式和配送信息
+    steps:
+    - user: |
+        支付方式有哪些？
+      intent: ask_payment_method
+    - action: utter_ask_payment_method
+    - user: |
+        多久能送达？
+      intent: ask_delivery
+    - action: utter_ask_delivery
+
+  - story: 测试会员信息询问流程
+    steps:
+    - user: |
+        如何成为会员？
+      intent: ask_membership
+    - action: utter_ask_membership
+    - user: |
+        会员有哪些特权和福利？
+      intent: ask_membership
+    - action: utter_ask_membership
+
+  - story: 测试用户询问实体店位置及营业时间
+    steps:
+    - user: |
+        你们在哪里有实体店？
+      intent: ask_location
+    - action: utter_ask_location
+    - user: |
+        你们商店营业到几点？
+      intent: ask_store_hours
+    - action: utter_ask_store_hours
+
+  - story: 测试用户进行商品对比并询问上市时间
+    steps:
+    - user: |
+        这两款手机有什么区别？
+      intent: ask_product_comparison
+    - action: utter_ask_product_comparison
+    - user: |
+        这款产品什么时候上市？
+      intent: ask_product_availability
+    - action: utter_ask_product_availability
+
+  - story: 测试用户跟进订单状态并结束对话
+    steps:
+    - user: |
+        我的订单号123456状态如何？
+      intent: ask_order_status
+    - action: utter_ask_order_status
+    - user: |
+        好的，谢谢，再见
+      intent: goodbye
+    - action: utter_goodbye

@@ -1,3 +1,39 @@
+### 部署到服务器
+
+##### 激活虚拟环境
+
+```shell
+sudo su root
+```
+
+```shell
+cd /www/chatbbj_rasa
+```
+
+```shell
+source venv/bin/activate
+```
+
+##### 查找Rasa进程并关闭
+
+```shell
+ps aux | grep rasa
+```
+
+```shell
+netstat -anp |grep 5005
+```
+
+```shell
+kill [PID]
+```
+
+##### 启动Rasa服务
+
+```
+nohup rasa run --cors "*" &
+```
+
 ### 安装
 
 ##### Rasa
